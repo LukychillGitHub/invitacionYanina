@@ -79,6 +79,17 @@ body  {
 	cursor: pointer;
 }
 
+.envelope.abierta {
+	--envelope-transform: var(--envelope-transform-hover, 0deg);
+	--evelope-rotate-delay: var(--evelope-rotate-delay-hover);
+	--shadow-transform: rotateY(180deg);
+	--fold-rotate: var(--fold-rotate-hover);
+	--fold-delay: var(--fold-delay-hover);
+	--fold-zindex: var(--fold-zindex-hover);
+	--letter-height: var(--letter-height-hover);
+	--letter-delay: var(--letter-delay-hover);
+}
+
 @media (min-width: 720px) {
 	.envelope {
 		--envelope-width: 600px;
@@ -321,6 +332,13 @@ body  {
      crossorigin="anonymous"></script>
 
 <script>
+
+	window.addEventListener('load', () => {
+	// Forzamos apertura automática
+	envelope.classList.add('abierta');
+});
+
+
   document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
   });
